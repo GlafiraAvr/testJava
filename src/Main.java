@@ -17,8 +17,9 @@ public class Main {
     static String filename = "untitled1\\simple.xml";
     static  Conteiner conteiner;
     public static void main(String[] strings){
-         conteiner = new Conteiner();
-
+        conteiner = new Conteiner();
+		IReader  readerXML = new REaderXML();
+		readXML(readerXML);
         System.out.print(conteiner);
         System.out.println("Total count - " +Conteiner.getCount());
         System.out.print("Avarage prise is "+conteiner.getAvaragePrice());
@@ -44,8 +45,8 @@ public class Main {
                 shape,slide);
     }
 
-    private  static void   readXML(){
-        ReaderXML readerXML = new ReaderXML();
+    private  static void   readXML(IReader readerXML){
+        
         try {
             readerXML.startRead(filename);
             for (ItemElement el : readerXML){
